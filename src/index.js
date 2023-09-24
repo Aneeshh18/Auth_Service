@@ -19,7 +19,7 @@ const prepareAndStartServer =() => {
         console.log(`Server Started at ${PORT}`);
 
 
-    //For creating and verifying the token 
+     //For creating and verifying the token 
         // const service = new UserService();
         // const newToken = service.createToken({email:"abh@gmai.com", id:1});
         // console.log( "new token is", newToken );
