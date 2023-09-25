@@ -14,12 +14,13 @@ const app = express();
 const prepareAndStartServer =() => {
 
     app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.urlencoded({extended: true}));
+
     app.use('/api', apiRoutes);
 
-    app.listen(PORT, ()=> {
-        console.log(`Server Started at ${PORT}`);
-        if(process.env.DB_SYNC){
+    app.listen(PORT, async () => {
+        console.log(`Server Started on Port: ${PORT}`);
+        if(process.env.DB_SYNC) {
             db.sequelize.sync({alter: true});
         }
 
