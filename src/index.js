@@ -6,6 +6,8 @@ const apiRoutes = require('./routes/index');
 
 // const UserService = require('./services/user-service');
 
+const db = require('./models/index');
+
 const app = express();
 
 
@@ -17,7 +19,9 @@ const prepareAndStartServer =() => {
 
     app.listen(PORT, ()=> {
         console.log(`Server Started at ${PORT}`);
-
+        if(process.env.DB_SYNC){
+            db.sequelize.sync({alter: true});
+        }
 
      //For creating and verifying the token 
         // const service = new UserService();
